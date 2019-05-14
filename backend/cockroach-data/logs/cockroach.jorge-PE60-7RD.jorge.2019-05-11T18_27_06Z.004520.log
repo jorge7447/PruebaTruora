@@ -1,0 +1,36 @@
+I190511 18:27:06.494153 1 util/log/clog.go:1199  [config] file created at: 2019/05/11 18:27:06
+I190511 18:27:06.494153 1 util/log/clog.go:1199  [config] running on machine: jorge-PE60-7RD
+I190511 18:27:06.494153 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+I190511 18:27:06.494153 1 util/log/clog.go:1199  [config] arguments: [cockroach start]
+I190511 18:27:06.494153 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190511 18:27:06.494152 1 cli/start.go:1033  logging to directory /home/jorge/go/src/backend/cockroach-data/logs
+I190511 18:27:06.522873 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+W190511 18:27:06.523020 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (3.9 GiB).
+I190511 18:27:06.523321 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+W190511 18:27:06.523372 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (3.9 GiB).
+I190511 18:27:06.523605 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190511 18:27:06.523642 1 cli/start.go:1082  CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+I190511 18:27:06.625039 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190511 18:27:06.625082 1 server/config.go:386  system total memory: 16 GiB
+I190511 18:27:06.625198 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190511 18:27:06.625243 1 cli/start.go:929  process identity: uid 1000 euid 1000 gid 1000 egid 1000
+I190511 18:27:06.625270 1 cli/start.go:554  starting cockroach node
+E190511 18:27:06.655760 1 cli/error.go:229  cannot load certificates.
+Check your certificate settings, set --certs-dir, or use --insecure for insecure clusters.
+
+problem with CA certificate: not found
+Error: cannot load certificates.
+Check your certificate settings, set --certs-dir, or use --insecure for insecure clusters.
+
+problem with CA certificate: not found

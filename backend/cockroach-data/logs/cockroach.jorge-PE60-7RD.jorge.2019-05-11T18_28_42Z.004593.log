@@ -1,0 +1,921 @@
+I190511 18:28:42.004375 1 util/log/clog.go:1199  [config] file created at: 2019/05/11 18:28:42
+I190511 18:28:42.004375 1 util/log/clog.go:1199  [config] running on machine: jorge-PE60-7RD
+I190511 18:28:42.004375 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+I190511 18:28:42.004375 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs]
+I190511 18:28:42.004375 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190511 18:28:42.004375 1 cli/start.go:1033  logging to directory /home/jorge/go/src/backend/cockroach-data/logs
+I190511 18:28:42.004636 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+W190511 18:28:42.004661 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (3.9 GiB).
+I190511 18:28:42.004736 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+W190511 18:28:42.004745 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (3.9 GiB).
+I190511 18:28:42.004801 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190511 18:28:42.004810 1 cli/start.go:1082  CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+I190511 18:28:42.106265 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190511 18:28:42.106306 1 server/config.go:386  system total memory: 16 GiB
+I190511 18:28:42.106395 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190511 18:28:42.106439 1 cli/start.go:929  process identity: uid 1000 euid 1000 gid 1000 egid 1000
+I190511 18:28:42.106464 1 cli/start.go:554  starting cockroach node
+I190511 18:28:42.165259 13 storage/engine/rocksdb.go:613  opening rocksdb instance at "/home/jorge/go/src/backend/cockroach-data/cockroach-temp055026250"
+I190511 18:28:42.666452 13 server/server.go:876  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I190511 18:28:42.666552 13 base/addr_validation.go:279  [n?] server certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+W190511 18:28:42.666581 13 base/addr_validation.go:293  [n?] listen address "::" not in node certificate (IP=; DNS=localhost,jorge-PE60-7RD; CN=node)
+Secure node-node and SQL connections are likely to fail.
+Consider extending the node certificate or tweak --listen-addr/--advertise-addr.
+I190511 18:28:42.666589 13 base/addr_validation.go:319  [n?] web UI certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+W190511 18:28:42.666773 13 server/config_unix.go:92  soft open file descriptor limit 4096 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/v19.1/recommended-production-settings.html for more details
+I190511 18:28:42.666870 13 storage/engine/rocksdb.go:613  opening rocksdb instance at "/home/jorge/go/src/backend/cockroach-data"
+I190511 18:28:42.908054 13 server/config.go:494  [n?] 1 storage engine initialized
+I190511 18:28:42.908110 13 server/config.go:497  [n?] RocksDB cache size: 128 MiB
+I190511 18:28:42.908133 13 server/config.go:497  [n?] store 0: RocksDB, max size 0 B, max open file limit 3840
+W190511 18:28:42.974006 13 cli/start.go:896  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "jorge-PE60-7RD" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I190511 18:28:43.913112 13 util/stop/stopper.go:546  [n?] quiescing; tasks left:
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+I190511 18:28:43.913208 13 util/stop/stopper.go:546  [n?] quiescing; tasks left:
+1      [async] intent_resolver_gc_batcher
+I190511 18:28:43.922988 13 server/node.go:358  [n?] **** cluster 0582a066-33ef-4110-b793-7aa77ffea637 has been created
+I190511 18:28:43.923043 13 server/server.go:1422  [n?] **** add additional nodes by specifying --join=jorge-PE60-7RD:26257
+I190511 18:28:43.923686 13 gossip/gossip.go:392  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"jorge-PE60-7RD:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:1 patch:0 unstable:0 > build_tag:"v19.1.0" started_at:1557599323923339468 
+W190511 18:28:43.951573 301 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190511 18:28:43.979064 13 server/node.go:461  [n1] initialized store [n1,s1]: disk (capacity=46 GiB, available=33 GiB, used=32 KiB, logicalBytes=8.3 KiB), ranges=20, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=887.00 pMax=7467.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I190511 18:28:43.979312 13 storage/stores.go:244  [n1] read 0 node addresses from persistent storage
+I190511 18:28:43.979644 13 server/node.go:699  [n1] connecting to gossip network to verify cluster ID...
+I190511 18:28:43.979698 13 server/node.go:719  [n1] node connected via gossip and verified as part of cluster "0582a066-33ef-4110-b793-7aa77ffea637"
+I190511 18:28:43.979839 13 server/node.go:542  [n1] node=1: started with [<no-attributes>=/home/jorge/go/src/backend/cockroach-data] engine(s) and attributes []
+I190511 18:28:43.980494 13 server/status/recorder.go:610  [n1] available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190511 18:28:43.997330 13 server/server.go:1582  [n1] starting https server at [::]:8080 (use: jorge-PE60-7RD:8080)
+I190511 18:28:43.997343 13 server/server.go:1584  [n1] starting grpc/postgres server at [::]:26257
+I190511 18:28:43.997352 13 server/server.go:1585  [n1] advertising CockroachDB node at jorge-PE60-7RD:26257
+W190511 18:28:44.003668 301 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+W190511 18:28:44.007760 13 jobs/registry.go:341  [n1] unable to get node liveness: node not in the liveness table
+W190511 18:28:44.102493 301 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190511 18:28:44.522454 44 gossip/gossip.go:1510  [n1] node has connected to cluster via gossip
+I190511 18:28:44.522526 44 storage/stores.go:263  [n1] wrote 0 node addresses to persistent storage
+I190511 18:28:45.723971 343 sql/event_log.go:135  [n1,intExec=optInToDiagnosticsStatReporting] Event: "set_cluster_setting", target: 0, info: {SettingName:diagnostics.reporting.enabled Value:true User:root}
+I190511 18:28:46.050041 81 sql/event_log.go:135  [n1,intExec=set-setting] Event: "set_cluster_setting", target: 0, info: {SettingName:version Value:19.1 User:root}
+I190511 18:28:46.133598 407 storage/replica_consistency.go:198  [n1,consistencyChecker,s1,r4/1:/System{/tsd-tse}] triggering stats recomputation to resolve delta of {ContainsEstimates:true LastUpdateNanos:1557599324275373808 IntentAge:0 GCBytesAge:0 LiveBytes:-29952 LiveCount:-597 KeyBytes:-28833 KeyCount:-597 ValBytes:-1119 ValCount:-597 IntentBytes:0 IntentCount:0 SysBytes:0 SysCount:0 XXX_NoUnkeyedLiteral:{} XXX_sizecache:0}
+I190511 18:28:46.200709 335 sql/event_log.go:135  [n1,intExec=disableNetTrace] Event: "set_cluster_setting", target: 0, info: {SettingName:trace.debug.enable Value:false User:root}
+I190511 18:28:46.677699 30 sql/event_log.go:135  [n1,intExec=initializeClusterSecret] Event: "set_cluster_setting", target: 0, info: {SettingName:cluster.secret Value:019ea8ba-1a47-4c1d-bb86-c364ff3de944 User:root}
+I190511 18:28:46.995547 438 sql/event_log.go:135  [n1,intExec=create-default-db] Event: "create_database", target: 50, info: {DatabaseName:defaultdb Statement:CREATE DATABASE IF NOT EXISTS defaultdb User:root}
+I190511 18:28:47.247584 423 sql/event_log.go:135  [n1,intExec=create-default-db] Event: "create_database", target: 51, info: {DatabaseName:postgres Statement:CREATE DATABASE IF NOT EXISTS postgres User:root}
+I190511 18:28:47.565259 13 server/server.go:1650  [n1] done ensuring all necessary migrations have run
+I190511 18:28:47.565301 13 server/server.go:1653  [n1] serving sql connections
+I190511 18:28:47.565564 13 cli/start.go:689  [config] clusterID: 0582a066-33ef-4110-b793-7aa77ffea637
+I190511 18:28:47.565666 13 cli/start.go:697  node startup completed:
+CockroachDB node starting at 2019-05-11 18:28:47.565426391 +0000 UTC (took 5.6s)
+build:               CCL v19.1.0 @ 2019/04/29 18:36:40 (go1.11.6)
+webui:               https://jorge-PE60-7RD:8080
+sql:                 postgresql://root@jorge-PE60-7RD:26257?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt
+client flags:        cockroach <client cmd> --host=jorge-PE60-7RD:26257 --certs-dir=certs
+logs:                /home/jorge/go/src/backend/cockroach-data/logs
+temp dir:            /home/jorge/go/src/backend/cockroach-data/cockroach-temp055026250
+external I/O path:   /home/jorge/go/src/backend/cockroach-data/extern
+store[0]:            path=/home/jorge/go/src/backend/cockroach-data
+status:              initialized new cluster
+clusterID:           0582a066-33ef-4110-b793-7aa77ffea637
+nodeID:              1
+I190511 18:28:47.620573 461 server/server_update.go:67  [n1] no need to upgrade, cluster already at the newest version
+I190511 18:28:47.840922 464 sql/event_log.go:135  [n1] Event: "node_join", target: 1, info: {Descriptor:{NodeID:1 Address:jorge-PE60-7RD:26257 Attrs: Locality: ServerVersion:19.1 BuildTag:v19.1.0 StartedAt:1557599323923339468 LocalityAddress:[] XXX_NoUnkeyedLiteral:{} XXX_sizecache:0} ClusterID:0582a066-33ef-4110-b793-7aa77ffea637 StartedAt:1557599323923339468 LastUp:1557599323923339468}
+I190511 18:28:53.983483 309 storage/store.go:4220  [n1,s1] sstables (read amplification = 0):
+I190511 18:28:53.983737 309 storage/store.go:4221  [n1,s1] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+Uptime(secs): 11.1 total, 11.1 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I190511 18:28:53.985692 314 server/status/runtime.go:500  [n1] runtime stats: 116 MiB RSS, 179 goroutines, 0 B/0 B/0 B GO alloc/idle/total, 17 MiB/21 MiB CGO alloc/total, 0.0 CGO/sec, 0.0/0.0 %(u/s)time, 0.0 %gc (9x), 40 KiB/32 KiB (r/w)net
+I190511 18:29:03.988668 314 server/status/runtime.go:500  [n1] runtime stats: 117 MiB RSS, 177 goroutines, 149 MiB/32 MiB/202 MiB GO alloc/idle/total, 17 MiB/22 MiB CGO alloc/total, 111.7 CGO/sec, 1.7/0.4 %(u/s)time, 0.0 %gc (1x), 10 KiB/18 KiB (r/w)net
+I190511 18:29:13.991676 314 server/status/runtime.go:500  [n1] runtime stats: 118 MiB RSS, 177 goroutines, 156 MiB/26 MiB/202 MiB GO alloc/idle/total, 17 MiB/22 MiB CGO alloc/total, 34.1 CGO/sec, 0.7/0.3 %(u/s)time, 0.0 %gc (0x), 45 KiB/47 KiB (r/w)net
+E190511 18:29:20.021136 643 server.go:2977  http: TLS handshake error from [::1]:51532: remote error: tls: unknown certificate
+E190511 18:29:20.027951 645 server.go:2977  http: TLS handshake error from [::1]:51536: remote error: tls: unknown certificate
+E190511 18:29:20.106829 239 server.go:2977  http: TLS handshake error from [::1]:51542: remote error: tls: unknown certificate
+E190511 18:29:20.107662 241 server.go:2977  http: TLS handshake error from [::1]:51544: remote error: tls: unknown certificate
+I190511 18:29:20.640701 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:20.641817 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:20.642349 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:21.672405 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:21.674211 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:22.677207 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:22.679198 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:23.684394 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:23.686275 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:23.994457 314 server/status/runtime.go:500  [n1] runtime stats: 156 MiB RSS, 181 goroutines, 200 MiB/47 MiB/268 MiB GO alloc/idle/total, 18 MiB/23 MiB CGO alloc/total, 29.8 CGO/sec, 3.0/0.4 %(u/s)time, 0.0 %gc (0x), 5.9 MiB/5.9 MiB (r/w)net
+I190511 18:29:24.691412 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:24.693851 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:25.698718 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:25.701260 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:26.704779 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:26.707640 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:27.711433 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:27.713580 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:28.718354 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:28.721018 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:29.724399 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:29.727184 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:30.731101 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:30.733530 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:31.737778 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:31.739761 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:32.744541 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:32.747031 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:33.750620 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:33.754000 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:33.997246 314 server/status/runtime.go:500  [n1] runtime stats: 164 MiB RSS, 181 goroutines, 207 MiB/40 MiB/268 MiB GO alloc/idle/total, 18 MiB/23 MiB CGO alloc/total, 26.4 CGO/sec, 0.8/0.4 %(u/s)time, 0.0 %gc (0x), 30 KiB/31 KiB (r/w)net
+I190511 18:29:34.756776 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:34.760068 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:35.763130 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:35.766457 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:36.770155 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:36.773309 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:37.777531 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:37.780394 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:38.784386 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:38.787598 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:39.791062 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:39.793926 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:40.798171 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:40.799723 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:41.803940 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:41.806289 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:42.810142 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:42.812872 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:43.816720 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:43.819984 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:43.980304 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+gossip connectivity
+  n1 [sentinel];
+I190511 18:29:44.000276 314 server/status/runtime.go:500  [n1] runtime stats: 171 MiB RSS, 181 goroutines, 213 MiB/35 MiB/268 MiB GO alloc/idle/total, 18 MiB/24 MiB CGO alloc/total, 26.7 CGO/sec, 0.9/0.3 %(u/s)time, 0.0 %gc (0x), 28 KiB/29 KiB (r/w)net
+I190511 18:29:44.823573 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:44.826856 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:45.829935 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:45.834005 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:46.838680 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:46.839976 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:47.844422 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:47.845755 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:48.849895 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:48.851884 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:49.856319 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:49.858954 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:50.862431 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:50.865736 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:51.868538 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:51.872265 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:52.874665 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:52.878431 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:53.881118 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:53.884643 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:54.003304 314 server/status/runtime.go:500  [n1] runtime stats: 179 MiB RSS, 180 goroutines, 221 MiB/28 MiB/268 MiB GO alloc/idle/total, 18 MiB/24 MiB CGO alloc/total, 29.8 CGO/sec, 0.9/0.4 %(u/s)time, 0.0 %gc (0x), 28 KiB/28 KiB (r/w)net
+I190511 18:29:54.887799 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:54.891292 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:55.894111 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:55.899656 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:56.903018 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:56.905295 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:57.910353 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:57.912365 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:58.916248 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:58.918268 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:59.922709 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:29:59.925031 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:00.928262 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:00.930641 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:01.934806 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:01.937727 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:02.941024 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:02.943936 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:03.947652 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:03.950684 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:04.005960 314 server/status/runtime.go:500  [n1] runtime stats: 185 MiB RSS, 182 goroutines, 146 MiB/99 MiB/268 MiB GO alloc/idle/total, 18 MiB/25 MiB CGO alloc/total, 22.1 CGO/sec, 1.4/0.3 %(u/s)time, 0.0 %gc (1x), 37 KiB/38 KiB (r/w)net
+I190511 18:30:04.953995 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:04.957047 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:05.961501 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:05.962260 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:06.966686 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:06.968456 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:07.972942 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:07.975200 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:08.979265 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:08.981702 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:09.985273 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:09.987046 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:10.990994 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:10.993678 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:11.997287 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:11.999562 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:13.003393 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:13.005745 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:14.009597 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:14.009980 314 server/status/runtime.go:500  [n1] runtime stats: 185 MiB RSS, 183 goroutines, 154 MiB/91 MiB/268 MiB GO alloc/idle/total, 18 MiB/25 MiB CGO alloc/total, 28.7 CGO/sec, 0.9/0.3 %(u/s)time, 0.0 %gc (0x), 26 KiB/26 KiB (r/w)net
+I190511 18:30:14.012217 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:15.015552 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:15.018781 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:16.021891 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:16.025153 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:17.027930 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:17.031134 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:18.034166 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:18.037426 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:19.041727 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:19.044157 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:20.047448 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:20.050734 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:21.053562 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:21.056406 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:22.059839 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:22.063065 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:23.066559 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:23.069901 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:24.012699 314 server/status/runtime.go:500  [n1] runtime stats: 186 MiB RSS, 183 goroutines, 161 MiB/86 MiB/268 MiB GO alloc/idle/total, 19 MiB/25 MiB CGO alloc/total, 30.5 CGO/sec, 1.2/0.2 %(u/s)time, 0.0 %gc (0x), 44 KiB/38 KiB (r/w)net
+I190511 18:30:24.073177 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:24.076025 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:25.079474 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:25.081826 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:26.084754 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:26.086911 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:27.090823 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:27.093367 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:28.096948 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:28.098785 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:29.102826 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:29.105285 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:30.108856 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:30.111742 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:31.114915 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:31.117928 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:32.121084 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:32.123591 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:33.128295 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:33.130011 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:34.015478 314 server/status/runtime.go:500  [n1] runtime stats: 186 MiB RSS, 183 goroutines, 168 MiB/80 MiB/268 MiB GO alloc/idle/total, 19 MiB/25 MiB CGO alloc/total, 28.9 CGO/sec, 1.1/0.3 %(u/s)time, 0.0 %gc (0x), 31 KiB/31 KiB (r/w)net
+I190511 18:30:34.134234 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:34.136054 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:35.140815 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:35.142720 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:36.147194 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:36.148804 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:37.152695 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:37.154560 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:38.159154 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:38.160929 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:39.165045 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:39.167546 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:40.170275 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:40.173177 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:41.175327 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:41.178442 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:42.180526 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:42.184068 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:43.186683 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:43.189913 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:43.980174 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:30:44.018475 314 server/status/runtime.go:500  [n1] runtime stats: 187 MiB RSS, 182 goroutines, 174 MiB/74 MiB/268 MiB GO alloc/idle/total, 19 MiB/26 MiB CGO alloc/total, 27.8 CGO/sec, 1.2/0.3 %(u/s)time, 0.0 %gc (0x), 28 KiB/28 KiB (r/w)net
+I190511 18:30:44.192345 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:44.195619 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:45.198435 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:45.201000 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:46.205105 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:46.207497 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:47.211237 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:47.213873 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:48.219101 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:48.220311 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:49.224365 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:49.227039 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:50.230466 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:50.232772 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:51.236812 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:51.239309 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:52.243329 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:52.246048 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:53.248690 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:53.251784 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:54.021233 314 server/status/runtime.go:500  [n1] runtime stats: 187 MiB RSS, 182 goroutines, 180 MiB/68 MiB/268 MiB GO alloc/idle/total, 19 MiB/26 MiB CGO alloc/total, 25.5 CGO/sec, 1.1/0.1 %(u/s)time, 0.0 %gc (0x), 29 KiB/29 KiB (r/w)net
+I190511 18:30:54.254194 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:54.256746 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:55.260681 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:55.262607 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:56.267122 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:56.269060 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:57.274005 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:57.275643 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:58.279739 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:58.282002 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:59.285741 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:30:59.288170 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:00.291690 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:00.294330 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:01.298081 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:01.300742 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:02.304279 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:02.307664 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:03.310730 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:03.313650 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:04.024058 314 server/status/runtime.go:500  [n1] runtime stats: 187 MiB RSS, 182 goroutines, 187 MiB/62 MiB/268 MiB GO alloc/idle/total, 19 MiB/27 MiB CGO alloc/total, 31.0 CGO/sec, 1.0/0.4 %(u/s)time, 0.0 %gc (0x), 29 KiB/30 KiB (r/w)net
+I190511 18:31:04.317514 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:04.318908 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:05.323368 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:05.325939 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:06.329428 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:06.332225 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:07.335602 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:07.338988 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:08.341986 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:08.344369 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:09.444961 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:09.446873 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:11.446059 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:11.446354 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:13.444603 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:13.446948 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:14.026858 314 server/status/runtime.go:500  [n1] runtime stats: 188 MiB RSS, 184 goroutines, 193 MiB/56 MiB/268 MiB GO alloc/idle/total, 20 MiB/27 MiB CGO alloc/total, 25.9 CGO/sec, 1.1/0.3 %(u/s)time, 0.0 %gc (0x), 24 KiB/24 KiB (r/w)net
+I190511 18:31:15.444528 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:15.446612 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:17.034130 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:17.042703 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:18.044457 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:18.050308 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:19.442470 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:19.443555 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:20.446384 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:21.444292 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:22.444940 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:23.445030 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:24.029759 314 server/status/runtime.go:500  [n1] runtime stats: 188 MiB RSS, 183 goroutines, 199 MiB/50 MiB/268 MiB GO alloc/idle/total, 20 MiB/27 MiB CGO alloc/total, 36.5 CGO/sec, 1.1/0.3 %(u/s)time, 0.0 %gc (0x), 248 KiB/176 KiB (r/w)net
+I190511 18:31:24.444568 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:25.444557 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:26.444886 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:27.444641 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:28.445315 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:29.444668 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:30.442574 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:31.444791 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:31.447889 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:33.448675 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:33.449131 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:34.033044 314 server/status/runtime.go:500  [n1] runtime stats: 188 MiB RSS, 183 goroutines, 206 MiB/44 MiB/268 MiB GO alloc/idle/total, 20 MiB/27 MiB CGO alloc/total, 22.1 CGO/sec, 1.0/0.3 %(u/s)time, 0.0 %gc (0x), 209 KiB/270 KiB (r/w)net
+I190511 18:31:35.445030 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:35.447018 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:37.444593 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:37.446696 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:39.443051 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:39.445198 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:41.445389 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:41.445626 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:43.444753 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:43.446475 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:43.980139 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:31:44.036454 314 server/status/runtime.go:500  [n1] runtime stats: 189 MiB RSS, 182 goroutines, 212 MiB/38 MiB/268 MiB GO alloc/idle/total, 20 MiB/28 MiB CGO alloc/total, 33.5 CGO/sec, 1.0/0.2 %(u/s)time, 0.0 %gc (0x), 24 KiB/24 KiB (r/w)net
+I190511 18:31:44.450242 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:44.453438 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:45.457378 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:45.459453 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:47.450026 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:47.450480 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:49.444764 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:49.447037 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:51.444629 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:51.446980 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:53.445061 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:53.448999 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:54.039074 314 server/status/runtime.go:500  [n1] runtime stats: 190 MiB RSS, 182 goroutines, 218 MiB/31 MiB/268 MiB GO alloc/idle/total, 20 MiB/28 MiB CGO alloc/total, 26.0 CGO/sec, 0.9/0.3 %(u/s)time, 0.0 %gc (0x), 20 KiB/22 KiB (r/w)net
+I190511 18:31:55.444948 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:55.446643 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:57.444620 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:57.446659 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:59.444690 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:31:59.448609 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:01.444010 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:01.445873 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:03.445345 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:03.445675 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:04.042281 314 server/status/runtime.go:500  [n1] runtime stats: 190 MiB RSS, 182 goroutines, 146 MiB/99 MiB/268 MiB GO alloc/idle/total, 20 MiB/28 MiB CGO alloc/total, 27.8 CGO/sec, 1.4/0.4 %(u/s)time, 0.0 %gc (1x), 18 KiB/26 KiB (r/w)net
+I190511 18:32:05.444665 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:05.446968 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:07.444626 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:07.446528 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:09.444623 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:09.446759 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:11.444511 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:11.448692 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:13.444899 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:13.449343 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:14.045233 314 server/status/runtime.go:500  [n1] runtime stats: 191 MiB RSS, 183 goroutines, 154 MiB/91 MiB/268 MiB GO alloc/idle/total, 20 MiB/28 MiB CGO alloc/total, 29.6 CGO/sec, 1.0/0.4 %(u/s)time, 0.0 %gc (0x), 17 KiB/20 KiB (r/w)net
+I190511 18:32:15.442408 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:15.442501 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:16.446701 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:16.449114 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:18.445588 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:18.445902 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:20.445536 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:20.448635 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:22.444573 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:22.446787 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:24.047903 314 server/status/runtime.go:500  [n1] runtime stats: 191 MiB RSS, 183 goroutines, 161 MiB/85 MiB/268 MiB GO alloc/idle/total, 20 MiB/28 MiB CGO alloc/total, 23.7 CGO/sec, 0.7/0.3 %(u/s)time, 0.0 %gc (0x), 21 KiB/83 KiB (r/w)net
+I190511 18:32:24.444049 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:24.445718 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:26.442808 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:26.443953 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:27.447893 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:28.444451 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:29.447780 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:30.445075 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:31.444241 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:32.445424 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:33.442322 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:33.497034 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:33.497672 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:33.498512 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:34.050836 314 server/status/runtime.go:500  [n1] runtime stats: 191 MiB RSS, 183 goroutines, 200 MiB/46 MiB/268 MiB GO alloc/idle/total, 20 MiB/29 MiB CGO alloc/total, 27.9 CGO/sec, 1.7/0.4 %(u/s)time, 0.0 %gc (0x), 5.7 MiB/5.7 MiB (r/w)net
+I190511 18:32:34.444425 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:34.447437 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:34.528116 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:34.529870 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:35.535867 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:35.536166 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:36.443441 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:36.444313 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:38.442234 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:38.443274 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:39.444552 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:40.444373 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:41.446627 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:42.442693 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:43.444655 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:43.448010 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:43.980304 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:32:44.053754 314 server/status/runtime.go:500  [n1] runtime stats: 192 MiB RSS, 182 goroutines, 207 MiB/41 MiB/268 MiB GO alloc/idle/total, 20 MiB/29 MiB CGO alloc/total, 31.2 CGO/sec, 0.9/0.2 %(u/s)time, 0.0 %gc (0x), 313 KiB/213 KiB (r/w)net
+I190511 18:32:45.444621 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:45.446826 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:47.445766 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:47.450271 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:49.443799 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:49.445182 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:51.445306 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:51.445645 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:53.444610 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:53.448155 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:54.056825 314 server/status/runtime.go:500  [n1] runtime stats: 192 MiB RSS, 182 goroutines, 213 MiB/35 MiB/268 MiB GO alloc/idle/total, 20 MiB/29 MiB CGO alloc/total, 26.4 CGO/sec, 0.9/0.2 %(u/s)time, 0.0 %gc (0x), 2.6 MiB/133 KiB (r/w)net
+I190511 18:32:55.445001 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:55.446535 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:57.445044 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:57.447134 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:59.445962 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:32:59.449410 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:01.442656 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:01.442781 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:02.446454 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:03.445116 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:04.060075 314 server/status/runtime.go:500  [n1] runtime stats: 192 MiB RSS, 182 goroutines, 219 MiB/29 MiB/268 MiB GO alloc/idle/total, 20 MiB/29 MiB CGO alloc/total, 26.7 CGO/sec, 1.0/0.3 %(u/s)time, 0.0 %gc (0x), 40 KiB/76 KiB (r/w)net
+I190511 18:33:04.444929 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:05.445861 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:06.444451 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:07.444517 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:08.445822 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:09.442623 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:10.444719 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:10.448601 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:12.444556 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:12.446420 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:14.062875 314 server/status/runtime.go:500  [n1] runtime stats: 192 MiB RSS, 183 goroutines, 225 MiB/23 MiB/268 MiB GO alloc/idle/total, 20 MiB/29 MiB CGO alloc/total, 31.9 CGO/sec, 1.0/0.3 %(u/s)time, 0.0 %gc (0x), 18 KiB/29 KiB (r/w)net
+I190511 18:33:14.444631 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:14.448651 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:16.444668 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:16.446859 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:18.445531 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:18.445793 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:20.444515 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:20.449629 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:22.444213 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:22.446263 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:24.064089 314 server/status/runtime.go:500  [n1] runtime stats: 197 MiB RSS, 183 goroutines, 232 MiB/17 MiB/268 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 26.2 CGO/sec, 0.9/0.3 %(u/s)time, 0.0 %gc (0x), 78 KiB/63 KiB (r/w)net
+I190511 18:33:24.444885 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:24.447890 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:26.444784 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:26.449010 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:28.444971 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:28.447243 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:30.445267 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:30.448718 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:32.442723 606 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:32.443605 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:33.446896 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:34.067903 314 server/status/runtime.go:500  [n1] runtime stats: 204 MiB RSS, 183 goroutines, 239 MiB/10 MiB/268 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 24.8 CGO/sec, 0.9/0.4 %(u/s)time, 0.0 %gc (0x), 112 KiB/79 KiB (r/w)net
+I190511 18:33:34.443054 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:35.443047 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:35.444817 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:36.447390 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:37.445109 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:38.444175 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:39.444982 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:40.444735 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:41.444632 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:42.444529 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:43.445636 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:43.980120 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:33:44.070441 314 server/status/runtime.go:500  [n1] runtime stats: 212 MiB RSS, 182 goroutines, 245 MiB/4.2 MiB/268 MiB GO alloc/idle/total, 20 MiB/29 MiB CGO alloc/total, 37.6 CGO/sec, 0.9/0.3 %(u/s)time, 0.0 %gc (0x), 118 KiB/131 KiB (r/w)net
+I190511 18:33:44.444666 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:45.445028 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:46.443440 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:47.444394 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:48.444578 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:49.443096 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:50.445884 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:51.444789 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:52.446676 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:53.445236 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:54.073703 314 server/status/runtime.go:500  [n1] runtime stats: 218 MiB RSS, 182 goroutines, 251 MiB/62 MiB/334 MiB GO alloc/idle/total, 20 MiB/29 MiB CGO alloc/total, 22.1 CGO/sec, 0.9/0.4 %(u/s)time, 0.0 %gc (0x), 17 KiB/20 KiB (r/w)net
+I190511 18:33:54.444486 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:55.447519 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:56.444784 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:57.445037 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:58.445543 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:33:59.444715 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:00.444642 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:01.445137 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:02.444431 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:03.444521 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:04.074965 314 server/status/runtime.go:500  [n1] runtime stats: 224 MiB RSS, 182 goroutines, 146 MiB/163 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 42.0 CGO/sec, 1.7/0.3 %(u/s)time, 0.0 %gc (1x), 19 KiB/20 KiB (r/w)net
+I190511 18:34:04.445146 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:05.444902 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:06.444798 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:07.444793 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:08.443800 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:09.444472 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:10.444445 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:11.444644 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:12.444672 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:13.444960 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:14.077949 314 server/status/runtime.go:500  [n1] runtime stats: 225 MiB RSS, 183 goroutines, 153 MiB/157 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 28.2 CGO/sec, 1.0/0.3 %(u/s)time, 0.0 %gc (0x), 19 KiB/22 KiB (r/w)net
+I190511 18:34:14.444406 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:15.445038 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:16.444511 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:17.444767 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:18.444972 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:19.446865 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:20.443505 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:21.444961 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:22.444511 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:23.444536 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:24.079318 314 server/status/runtime.go:500  [n1] runtime stats: 225 MiB RSS, 183 goroutines, 160 MiB/150 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 26.7 CGO/sec, 1.2/0.2 %(u/s)time, 0.0 %gc (0x), 20 KiB/21 KiB (r/w)net
+I190511 18:34:24.444440 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:25.446002 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:26.444508 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:27.444635 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:28.444600 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:29.444440 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:30.444583 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:31.444078 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:32.444490 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:33.444860 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:34.082307 314 server/status/runtime.go:500  [n1] runtime stats: 225 MiB RSS, 183 goroutines, 167 MiB/144 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 24.8 CGO/sec, 1.3/0.3 %(u/s)time, 0.0 %gc (0x), 17 KiB/18 KiB (r/w)net
+I190511 18:34:34.444416 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:35.445238 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:36.444687 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:37.444861 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:38.444546 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:39.444676 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:40.444561 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:41.444641 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:42.444585 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:43.444506 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:43.980149 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:34:44.084942 314 server/status/runtime.go:500  [n1] runtime stats: 225 MiB RSS, 182 goroutines, 174 MiB/138 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 34.4 CGO/sec, 1.1/0.2 %(u/s)time, 0.0 %gc (0x), 19 KiB/19 KiB (r/w)net
+I190511 18:34:44.444133 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:45.444183 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:46.445818 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:47.444992 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:48.444816 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:49.445160 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:50.444704 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:51.444780 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:52.444729 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:53.444793 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:54.088209 314 server/status/runtime.go:500  [n1] runtime stats: 225 MiB RSS, 182 goroutines, 181 MiB/131 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 23.7 CGO/sec, 1.0/0.2 %(u/s)time, 0.0 %gc (0x), 16 KiB/16 KiB (r/w)net
+I190511 18:34:54.443972 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:55.443051 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:56.445302 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:57.444600 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:58.447240 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:34:59.444579 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:00.444589 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:01.444433 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:02.444563 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:03.444783 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:04.091222 314 server/status/runtime.go:500  [n1] runtime stats: 225 MiB RSS, 182 goroutines, 187 MiB/125 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 26.4 CGO/sec, 1.2/0.2 %(u/s)time, 0.0 %gc (0x), 18 KiB/20 KiB (r/w)net
+I190511 18:35:04.444380 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:05.444929 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:06.443018 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:07.445013 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:08.444766 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:09.445003 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:10.444749 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:11.444918 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:12.444608 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:13.442713 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:14.093848 314 server/status/runtime.go:500  [n1] runtime stats: 226 MiB RSS, 183 goroutines, 193 MiB/119 MiB/334 MiB GO alloc/idle/total, 21 MiB/29 MiB CGO alloc/total, 29.6 CGO/sec, 1.0/0.3 %(u/s)time, 0.0 %gc (0x), 18 KiB/19 KiB (r/w)net
+I190511 18:35:14.444401 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:14.447178 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:16.445017 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:16.446993 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:18.358793 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:18.363769 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:19.367557 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:19.370738 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:20.445882 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:20.449775 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:22.444788 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:22.446824 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:24.095192 314 server/status/runtime.go:500  [n1] runtime stats: 226 MiB RSS, 183 goroutines, 200 MiB/113 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 28.0 CGO/sec, 0.9/0.3 %(u/s)time, 0.0 %gc (0x), 74 KiB/33 KiB (r/w)net
+I190511 18:35:24.445514 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:24.447533 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:26.444650 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:26.448123 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:28.442453 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:28.442563 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:29.448678 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:29.449044 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:31.445756 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:31.446105 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:33.444983 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:33.447515 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:34.098387 314 server/status/runtime.go:500  [n1] runtime stats: 227 MiB RSS, 183 goroutines, 206 MiB/107 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 29.6 CGO/sec, 1.2/0.2 %(u/s)time, 0.0 %gc (0x), 164 KiB/56 KiB (r/w)net
+I190511 18:35:35.445715 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:35.450115 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:37.442918 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:37.443952 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:39.444571 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:39.446810 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:41.445098 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:41.455241 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:43.444595 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:43.446357 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:43.980119 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:35:44.101524 314 server/status/runtime.go:500  [n1] runtime stats: 227 MiB RSS, 182 goroutines, 212 MiB/101 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 26.6 CGO/sec, 1.1/0.2 %(u/s)time, 0.0 %gc (0x), 226 KiB/51 KiB (r/w)net
+I190511 18:35:44.449450 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:44.451312 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:45.454410 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:45.456401 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:46.461035 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:46.463256 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:47.467001 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:47.469430 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:48.472795 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:48.475889 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:49.479125 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:49.481731 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:50.485211 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:50.486838 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:51.492190 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:51.492416 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:52.498045 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:52.499840 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:53.503632 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:53.505727 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:54.104673 314 server/status/runtime.go:500  [n1] runtime stats: 227 MiB RSS, 182 goroutines, 219 MiB/94 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 32.6 CGO/sec, 1.1/0.3 %(u/s)time, 0.0 %gc (0x), 29 KiB/30 KiB (r/w)net
+I190511 18:35:54.507613 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:54.509868 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:55.512911 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:55.515737 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:56.518583 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:56.522153 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:57.525132 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:57.528637 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:58.531768 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:58.534383 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:59.538087 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:35:59.540096 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:00.544687 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:00.547282 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:01.551036 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:01.553549 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:02.556942 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:02.559985 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:03.562952 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:03.566284 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:04.107604 314 server/status/runtime.go:500  [n1] runtime stats: 227 MiB RSS, 182 goroutines, 146 MiB/163 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 24.8 CGO/sec, 1.4/0.2 %(u/s)time, 0.0 %gc (1x), 30 KiB/30 KiB (r/w)net
+I190511 18:36:04.568730 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:04.571522 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:05.574143 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:05.576932 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:06.581014 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:06.582836 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:07.587111 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:07.589088 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:08.330025 796 sql/event_log.go:135  [n1,client=127.0.0.1:32982,user=root] Event: "create_database", target: 52, info: {DatabaseName:truora Statement:CREATE DATABASE truora User:root}
+I190511 18:36:08.593715 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:08.595518 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:09.599809 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:09.601602 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:10.606349 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:10.608320 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:11.613744 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:11.614001 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:12.619507 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:12.621459 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:14.110470 314 server/status/runtime.go:500  [n1] runtime stats: 227 MiB RSS, 183 goroutines, 155 MiB/154 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 49.5 CGO/sec, 1.1/0.5 %(u/s)time, 0.0 %gc (0x), 28 KiB/29 KiB (r/w)net
+I190511 18:36:14.444689 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:14.446814 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:16.444643 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:16.446875 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:18.444498 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:18.446443 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:20.444939 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:20.447094 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:22.442592 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:22.442663 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:23.447320 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:23.447796 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:24.113762 314 server/status/runtime.go:500  [n1] runtime stats: 228 MiB RSS, 183 goroutines, 162 MiB/149 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 34.2 CGO/sec, 1.4/0.2 %(u/s)time, 0.0 %gc (0x), 22 KiB/25 KiB (r/w)net
+I190511 18:36:25.447132 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:25.448264 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:27.447155 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:27.447834 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:29.444585 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:29.448440 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:31.445593 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:31.445855 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:33.444650 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:33.446683 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:34.117026 314 server/status/runtime.go:500  [n1] runtime stats: 228 MiB RSS, 183 goroutines, 168 MiB/143 MiB/334 MiB GO alloc/idle/total, 29 MiB/37 MiB CGO alloc/total, 22.1 CGO/sec, 1.0/0.4 %(u/s)time, 0.0 %gc (0x), 19 KiB/21 KiB (r/w)net
+I190511 18:36:35.445086 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:35.447288 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:37.444815 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:37.446893 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:39.444814 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:39.446823 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:41.444227 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:41.447723 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:43.445322 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:43.445612 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:43.980200 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:36:44.119603 314 server/status/runtime.go:500  [n1] runtime stats: 228 MiB RSS, 182 goroutines, 175 MiB/137 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 40.3 CGO/sec, 1.0/0.4 %(u/s)time, 0.0 %gc (0x), 19 KiB/20 KiB (r/w)net
+I190511 18:36:45.444793 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:45.446716 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:47.444611 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:47.448122 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:49.444584 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:49.446883 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:51.444487 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:51.446277 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:53.445113 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:53.450049 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:54.122705 314 server/status/runtime.go:500  [n1] runtime stats: 228 MiB RSS, 182 goroutines, 181 MiB/131 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 22.1 CGO/sec, 1.1/0.2 %(u/s)time, 0.0 %gc (0x), 25 KiB/26 KiB (r/w)net
+I190511 18:36:55.444587 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:55.446787 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:57.444807 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:57.446792 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:59.444593 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:36:59.448186 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:01.444744 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:01.446690 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:03.445270 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:03.447359 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:04.125472 314 server/status/runtime.go:500  [n1] runtime stats: 229 MiB RSS, 182 goroutines, 188 MiB/125 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 32.9 CGO/sec, 0.9/0.4 %(u/s)time, 0.0 %gc (0x), 18 KiB/19 KiB (r/w)net
+I190511 18:37:05.444534 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:05.449418 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:07.444062 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:07.445706 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:09.444726 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:09.446405 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:11.444519 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:11.447663 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:13.444451 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:13.446511 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:14.126813 314 server/status/runtime.go:500  [n1] runtime stats: 229 MiB RSS, 181 goroutines, 194 MiB/119 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 26.6 CGO/sec, 0.9/0.3 %(u/s)time, 0.0 %gc (0x), 18 KiB/23 KiB (r/w)net
+I190511 18:37:15.444418 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:15.446160 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:17.444622 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:17.447039 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:19.444557 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:19.448015 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:21.449664 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:21.451767 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:23.445143 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:23.447411 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:24.130044 314 server/status/runtime.go:500  [n1] runtime stats: 229 MiB RSS, 181 goroutines, 200 MiB/113 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 28.0 CGO/sec, 1.0/0.2 %(u/s)time, 0.0 %gc (0x), 18 KiB/20 KiB (r/w)net
+I190511 18:37:25.446792 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:25.447323 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:27.444772 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:27.446680 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:29.445536 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:29.445753 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:31.445165 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:31.449358 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:33.444715 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:33.446837 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:34.133334 314 server/status/runtime.go:500  [n1] runtime stats: 229 MiB RSS, 181 goroutines, 207 MiB/107 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 23.7 CGO/sec, 1.0/0.3 %(u/s)time, 0.0 %gc (0x), 24 KiB/18 KiB (r/w)net
+I190511 18:37:35.444233 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:35.446123 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:37.445271 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:37.448196 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:39.442602 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:39.442692 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:40.445007 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:40.446050 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:42.444625 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:42.446993 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:43.980085 310 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190511 18:37:44.134472 314 server/status/runtime.go:500  [n1] runtime stats: 229 MiB RSS, 180 goroutines, 213 MiB/101 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 32.8 CGO/sec, 1.3/0.3 %(u/s)time, 0.0 %gc (0x), 18 KiB/20 KiB (r/w)net
+I190511 18:37:44.442528 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:44.442686 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:45.448553 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:45.448863 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:47.443400 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:47.444741 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:49.444139 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:49.449364 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:51.444951 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:51.448133 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:53.444738 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:53.447067 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:54.137425 314 server/status/runtime.go:500  [n1] runtime stats: 230 MiB RSS, 180 goroutines, 220 MiB/94 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 31.0 CGO/sec, 0.8/0.3 %(u/s)time, 0.0 %gc (0x), 18 KiB/18 KiB (r/w)net
+I190511 18:37:55.442471 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:55.442684 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:56.447235 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:56.449157 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:58.444929 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:37:58.447027 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:00.445964 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:00.447468 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:02.444676 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:02.446783 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:04.140691 314 server/status/runtime.go:500  [n1] runtime stats: 230 MiB RSS, 180 goroutines, 146 MiB/162 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 26.4 CGO/sec, 1.4/0.2 %(u/s)time, 0.0 %gc (1x), 18 KiB/19 KiB (r/w)net
+I190511 18:38:04.445215 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:04.447234 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:06.444798 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:06.448128 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:08.444570 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:08.446277 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:10.444354 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:10.446950 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:12.444737 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:12.448045 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:14.141836 314 server/status/runtime.go:500  [n1] runtime stats: 230 MiB RSS, 181 goroutines, 153 MiB/156 MiB/334 MiB GO alloc/idle/total, 29 MiB/38 MiB CGO alloc/total, 28.2 CGO/sec, 0.8/0.2 %(u/s)time, 0.0 %gc (0x), 18 KiB/21 KiB (r/w)net
+I190511 18:38:14.444537 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:14.446796 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:16.444784 660 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:16.446870 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:18.444604 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:18.447171 619 server/authentication.go:373  Web session error: http: named cookie not present
+I190511 18:38:18.632689 1 cli/start.go:765  received signal 'interrupt'
+I190511 18:38:18.666198 1 cli/start.go:830  initiating graceful shutdown of server
+I190511 18:38:18.759094 2288 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] stats.Refresher: maybeRefreshStats
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+I190511 18:38:18.791725 2288 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] intent_resolver_ir_batcher
+1      [async] closedts-rangefeed-subscriber
+I190511 18:38:18.826049 2288 storage/engine/rocksdb.go:746  closing rocksdb instance at "/home/jorge/go/src/backend/cockroach-data/cockroach-temp055026250"
+I190511 18:38:18.860071 2288 storage/engine/rocksdb.go:746  closing rocksdb instance at "/home/jorge/go/src/backend/cockroach-data"
+I190511 18:38:18.894772 1 cli/start.go:876  server drained and shutdown completed
+I190511 18:38:18.926628 1 cli/error.go:229  interrupted
+Error: interrupted

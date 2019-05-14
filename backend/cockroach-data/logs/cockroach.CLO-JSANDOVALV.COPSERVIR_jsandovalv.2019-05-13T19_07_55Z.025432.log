@@ -1,0 +1,126 @@
+I190513 19:07:55.089681 1 util/log/clog.go:1199  [config] file created at: 2019/05/13 19:07:55
+I190513 19:07:55.089681 1 util/log/clog.go:1199  [config] running on machine: CLO-JSANDOVALV
+I190513 19:07:55.089681 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190513 19:07:55.089681 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs --listen-addr=localhost]
+I190513 19:07:55.089681 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190513 19:07:55.089678 1 cli/start.go:1033  logging to directory C:\Users\jsandovalv\go\src\backend\cockroach-data\logs
+W190513 19:07:55.130745 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W190513 19:07:55.130793 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I190513 19:07:55.130812 1 cli/start.go:1082  CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190513 19:07:55.244740 1 server/config.go:386  system total memory: 7.9 GiB
+I190513 19:07:55.244780 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190513 19:07:55.244805 1 cli/start.go:929  process identity: uid S-1-5-21-3587429272-3227690676-254406505-19748, gid S-1-5-21-3587429272-3227690676-254406505-513
+I190513 19:07:55.244816 1 cli/start.go:554  starting cockroach node
+I190513 19:07:55.267949 13 storage/engine/rocksdb.go:613  opening rocksdb instance at "C:\\Users\\jsandovalv\\go\\src\\backend\\cockroach-data\\cockroach-temp714053523"
+E190513 19:07:58.429714 13 server/status/runtime.go:340  [n?] could not get initial disk IO counters: context deadline exceeded
+I190513 19:07:58.467220 13 server/server.go:876  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I190513 19:07:58.467914 13 base/addr_validation.go:279  [n?] server certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+W190513 19:07:58.470972 13 base/addr_validation.go:293  [n?] listen address "127.0.0.1" not in node certificate (IP=; DNS=localhost,jorge-PE60-7RD; CN=node)
+Secure node-node and SQL connections are likely to fail.
+Consider extending the node certificate or tweak --listen-addr/--advertise-addr.
+I190513 19:07:58.470999 13 base/addr_validation.go:319  [n?] web UI certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+I190513 19:07:58.472026 13 storage/engine/rocksdb.go:613  opening rocksdb instance at "C:\\Users\\jsandovalv\\go\\src\\backend\\cockroach-data"
+I190513 19:07:58.697205 13 server/config.go:494  [n?] 1 storage engine initialized
+I190513 19:07:58.697249 13 server/config.go:497  [n?] RocksDB cache size: 128 MiB
+I190513 19:07:58.697275 13 server/config.go:497  [n?] store 0: RocksDB, max size 0 B, max open file limit 10000
+I190513 19:07:58.763437 13 server/server.go:926  [n?] Sleeping till wall time 1557774478763384800 to catches up to 1557774478967157401 to ensure monotonicity. Delta: 203.772601ms
+I190513 19:07:58.967736 13 gossip/gossip.go:392  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:1 patch:0 unstable:0 > build_tag:"v19.1.0" started_at:1557774478967547300 
+W190513 19:07:58.982230 219 storage/replica_range_lease.go:506  can't determine lease status due to node liveness error: node not in the liveness table
+W190513 19:07:58.982298 219 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190513 19:07:58.989275 13 server/node.go:461  [n1] initialized store [n1,s1]: disk (capacity=915 GiB, available=629 GiB, used=11 MiB, logicalBytes=52 MiB), ranges=33, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=3009.00 p75=20135.00 p90=77034.00 pMax=37744852.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I190513 19:07:58.989400 13 storage/stores.go:244  [n1] read 0 node addresses from persistent storage
+W190513 19:07:59.033540 219 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190513 19:07:59.044450 13 server/node.go:699  [n1] connecting to gossip network to verify cluster ID...
+I190513 19:07:59.044475 13 server/node.go:719  [n1] node connected via gossip and verified as part of cluster "0582a066-33ef-4110-b793-7aa77ffea637"
+I190513 19:07:59.044589 13 server/node.go:542  [n1] node=1: started with [<no-attributes>=C:\Users\jsandovalv\go\src\backend\cockroach-data] engine(s) and attributes []
+I190513 19:07:59.045079 13 server/server.go:1582  [n1] starting https server at 127.0.0.1:8080 (use: localhost:8080)
+I190513 19:07:59.045102 13 server/server.go:1584  [n1] starting grpc/postgres server at 127.0.0.1:26257
+I190513 19:07:59.045118 13 server/server.go:1585  [n1] advertising CockroachDB node at localhost:26257
+I190513 19:07:59.313527 13 server/server.go:1650  [n1] done ensuring all necessary migrations have run
+I190513 19:07:59.313607 13 server/server.go:1653  [n1] serving sql connections
+I190513 19:07:59.314245 13 cli/start.go:689  [config] clusterID: 0582a066-33ef-4110-b793-7aa77ffea637
+I190513 19:07:59.314354 13 cli/start.go:697  node startup completed:
+CockroachDB node starting at 2019-05-13 19:07:59.3139689 +0000 UTC (took 4.2s)
+build:               CCL v19.1.0 @ 2019/04/29 18:46:21 (go1.11.6)
+webui:               https://localhost:8080
+sql:                 postgresql://root@localhost:26257?sslcert=certs%5Cclient.root.crt&sslkey=certs%5Cclient.root.key&sslmode=verify-full&sslrootcert=certs%5Cca.crt
+client flags:        cockroach <client cmd> --host=localhost:26257 --certs-dir=certs
+logs:                C:\Users\jsandovalv\go\src\backend\cockroach-data\logs
+temp dir:            C:\Users\jsandovalv\go\src\backend\cockroach-data\cockroach-temp714053523
+external I/O path:   C:\Users\jsandovalv\go\src\backend\cockroach-data\extern
+store[0]:            path=C:\Users\jsandovalv\go\src\backend\cockroach-data
+status:              restarted pre-existing node
+clusterID:           0582a066-33ef-4110-b793-7aa77ffea637
+nodeID:              1
+I190513 19:07:59.420747 251 server/server_update.go:67  [n1] no need to upgrade, cluster already at the newest version
+I190513 19:07:59.637301 254 sql/event_log.go:135  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:localhost:26257 Attrs: Locality: ServerVersion:19.1 BuildTag:v19.1.0 StartedAt:1557774478967547300 LocalityAddress:[] XXX_NoUnkeyedLiteral:{} XXX_sizecache:0} ClusterID:0582a066-33ef-4110-b793-7aa77ffea637 StartedAt:1557774478967547300 LastUp:1557773848661986100}
+I190513 19:07:59.637347 43 sql/lease.go:1857  released orphaned table lease: {id:78 version:7 expiration:{Time:{wall:430866000 ext:63693370925 loc:<nil>}}}
+W190513 19:08:00.188514 71 sql/schema_changer.go:796  [n1,scExec] ID 67 is not a table
+I190513 19:08:01.120003 108 gossip/gossip.go:1510  [n1] node has connected to cluster via gossip
+I190513 19:08:01.120182 108 storage/stores.go:263  [n1] wrote 0 node addresses to persistent storage
+I190513 19:08:01.285453 293 storage/replica_command.go:386  [n1,merge,s1,r20/1:/Table/{24-67}] initiating a merge of r44:/Table/6{7-8} [(n1,s1):1, next=2, gen=1] into this range (lhs+rhs has (size=0 B+0 B qps=0.00+1.96 --> 1.96qps) below threshold (size=0 B, qps=1.96))
+E190513 19:08:02.487932 56 util/log/crash_reporting.go:546  [n1,s1,r20/1:/Table/{24-67}] Reported as error 91ba9c35731740f79dd8325f15685110
+F190513 19:08:02.487956 56 storage/replica_proposal.go:679  [n1,s1,r20/1:/Table/{24-67}] failed to update store after merging range: IO error: Failed to remove dir: C:\Users\jsandovalv\go\src\backend\cockroach-data\auxiliary\sideloading\r0XXXX\r44: El sistema no puede encontrar la ruta especificada.
+goroutine 56 [running]:
+github.com/cockroachdb/cockroach/pkg/util/log.getStacks(0xc00048a000, 0xc00048a060, 0x54cd400, 0x1b)
+	/go/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go:1020 +0xdb
+github.com/cockroachdb/cockroach/pkg/util/log.(*loggingT).outputLogEntry(0x5736ea0, 0xc000000004, 0x54cd41d, 0x1b, 0x2a7, 0xc00077a200, 0xf2)
+	/go/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go:876 +0x961
+github.com/cockroachdb/cockroach/pkg/util/log.addStructured(0x3c2cb20, 0xc0004c7830, 0x4, 0x2, 0x35269d9, 0x2e, 0xc004f823c8, 0x1, 0x1)
+	/go/src/github.com/cockroachdb/cockroach/pkg/util/log/structured.go:85 +0x2df
+github.com/cockroachdb/cockroach/pkg/util/log.logDepth(0x3c2cb20, 0xc0004c7830, 0x1, 0x4, 0x35269d9, 0x2e, 0xc004f823c8, 0x1, 0x1)
+	/go/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go:71 +0x93
+github.com/cockroachdb/cockroach/pkg/util/log.Fatalf(0x3c2cb20, 0xc0004c7830, 0x35269d9, 0x2e, 0xc004f823c8, 0x1, 0x1)
+	/go/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go:182 +0x85
+github.com/cockroachdb/cockroach/pkg/storage.(*Replica).handleReplicatedEvalResult(0xc0009d2a00, 0x3c2cb20, 0xc0004c7830, 0x0, 0x0, 0x0, 0xc005819200, 0x0, 0x0, 0x0, ...)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/replica_proposal.go:679 +0x10ec
+github.com/cockroachdb/cockroach/pkg/storage.(*Replica).handleEvalResultRaftMuLocked(0xc0009d2a00, 0x3c2cb20, 0xc0004c7830, 0xc005920420, 0x1, 0x0, 0x0, 0xc005819200, 0x0, 0x0, ...)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/replica_proposal.go:842 +0xb1
+github.com/cockroachdb/cockroach/pkg/storage.(*Replica).processRaftCommand(0xc0009d2a00, 0x3c2cb20, 0xc0004c7830, 0xc0002e5cb0, 0x8, 0xf, 0x4c, 0x100000001, 0x1, 0xa, ...)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/replica_raft.go:2006 +0x8f2
+github.com/cockroachdb/cockroach/pkg/storage.(*Replica).handleRaftReadyRaftMuLocked(0xc0009d2a00, 0x3c2cb20, 0xc0004c7920, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/replica_raft.go:816 +0x13e6
+github.com/cockroachdb/cockroach/pkg/storage.(*Replica).handleRaftReady(0xc0009d2a00, 0x3c2cb20, 0xc0004c7920, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/replica_raft.go:505 +0x13e
+github.com/cockroachdb/cockroach/pkg/storage.(*Store).processReady(0xc000eea000, 0x3c2cb20, 0xc0004c7920, 0x14)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/store.go:3697 +0x12f
+github.com/cockroachdb/cockroach/pkg/storage.(*raftScheduler).worker(0xc000ed0280, 0x3c2cb20, 0xc00051e0c0)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/scheduler.go:214 +0x25f
+github.com/cockroachdb/cockroach/pkg/storage.(*raftScheduler).Start.func2(0x3c2cb20, 0xc00051e0c0)
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/scheduler.go:165 +0x45
+github.com/cockroachdb/cockroach/pkg/util/stop.(*Stopper).RunWorker.func1(0xc0002be500, 0xc00018d200, 0xc0002be4f0)
+	/go/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:200 +0xe8
+created by github.com/cockroachdb/cockroach/pkg/util/stop.(*Stopper).RunWorker
+	/go/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:193 +0xaf
+
+
+****************************************************************************
+
+This node experienced a fatal error (printed above), and as a result the
+process is terminating.
+
+Fatal errors can occur due to faulty hardware (disks, memory, clocks) or a
+problem in CockroachDB. With your help, the support team at Cockroach Labs
+will try to determine the root cause, recommend next steps, and we can
+improve CockroachDB based on your report.
+
+Please submit a crash report by following the instructions here:
+
+    https://github.com/cockroachdb/cockroach/issues/new/choose
+
+If you would rather not post publicly, please contact us directly at:
+
+    support@cockroachlabs.com
+
+The Cockroach Labs team appreciates your feedback.

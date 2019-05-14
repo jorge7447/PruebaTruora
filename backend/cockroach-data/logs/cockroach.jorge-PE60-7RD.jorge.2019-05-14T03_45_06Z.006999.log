@@ -1,0 +1,126 @@
+I190514 03:45:06.580691 1 util/log/clog.go:1199  [config] file created at: 2019/05/14 03:45:06
+I190514 03:45:06.580691 1 util/log/clog.go:1199  [config] running on machine: jorge-PE60-7RD
+I190514 03:45:06.580691 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+I190514 03:45:06.580691 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs]
+I190514 03:45:06.580691 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190514 03:45:06.580690 1 cli/start.go:1033  logging to directory /home/jorge/go/src/backend1/cockroach-data/logs
+I190514 03:45:06.581052 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+W190514 03:45:06.581089 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (3.9 GiB).
+I190514 03:45:06.581190 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+W190514 03:45:06.581251 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (3.9 GiB).
+I190514 03:45:06.581370 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190514 03:45:06.581383 1 cli/start.go:1082  CockroachDB CCL v19.1.0 (x86_64-unknown-linux-gnu, built 2019/04/29 18:36:40, go1.11.6)
+I190514 03:45:06.682594 1 server/status/recorder.go:610  available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190514 03:45:06.682634 1 server/config.go:386  system total memory: 16 GiB
+I190514 03:45:06.682772 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190514 03:45:06.682819 1 cli/start.go:929  process identity: uid 1000 euid 1000 gid 1000 egid 1000
+I190514 03:45:06.682845 1 cli/start.go:554  starting cockroach node
+I190514 03:45:06.769661 82 storage/engine/rocksdb.go:613  opening rocksdb instance at "/home/jorge/go/src/backend1/cockroach-data/cockroach-temp020413059"
+I190514 03:45:07.213652 82 server/server.go:876  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I190514 03:45:07.213861 82 base/addr_validation.go:279  [n?] server certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+W190514 03:45:07.213928 82 base/addr_validation.go:293  [n?] listen address "::" not in node certificate (IP=; DNS=localhost,jorge-PE60-7RD; CN=node)
+Secure node-node and SQL connections are likely to fail.
+Consider extending the node certificate or tweak --listen-addr/--advertise-addr.
+I190514 03:45:07.213947 82 base/addr_validation.go:319  [n?] web UI certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+W190514 03:45:07.222456 82 server/config_unix.go:92  soft open file descriptor limit 4096 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/v19.1/recommended-production-settings.html for more details
+I190514 03:45:07.222532 82 storage/engine/rocksdb.go:613  opening rocksdb instance at "/home/jorge/go/src/backend1/cockroach-data"
+W190514 03:45:07.332920 82 storage/engine/rocksdb.go:127  [rocksdb] [/go/src/github.com/cockroachdb/cockroach/c-deps/rocksdb/db/version_set.cc:2566] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+W190514 03:45:08.092269 82 storage/engine/rocksdb.go:127  [rocksdb] [/go/src/github.com/cockroachdb/cockroach/c-deps/rocksdb/db/version_set.cc:2566] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+I190514 03:45:08.272101 82 server/config.go:494  [n?] 1 storage engine initialized
+I190514 03:45:08.272148 82 server/config.go:497  [n?] RocksDB cache size: 128 MiB
+I190514 03:45:08.272172 82 server/config.go:497  [n?] store 0: RocksDB, max size 0 B, max open file limit 3840
+W190514 03:45:08.346745 82 cli/start.go:896  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "jorge-PE60-7RD" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I190514 03:45:08.512681 82 gossip/gossip.go:392  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"jorge-PE60-7RD:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:1 patch:0 unstable:0 > build_tag:"v19.1.0" started_at:1557805508512309553 
+W190514 03:45:08.584460 208 storage/replica_range_lease.go:506  can't determine lease status due to node liveness error: node not in the liveness table
+W190514 03:45:08.640536 208 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+W190514 03:45:08.800488 208 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190514 03:45:08.801186 82 server/node.go:461  [n1] initialized store [n1,s1]: disk (capacity=46 GiB, available=33 GiB, used=11 MiB, logicalBytes=44 MiB), ranges=30, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=2330.00 p75=19420.00 p90=54190.00 pMax=39544837.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I190514 03:45:08.801426 82 storage/stores.go:244  [n1] read 0 node addresses from persistent storage
+I190514 03:45:08.801721 82 server/node.go:699  [n1] connecting to gossip network to verify cluster ID...
+I190514 03:45:08.801768 82 server/node.go:719  [n1] node connected via gossip and verified as part of cluster "0582a066-33ef-4110-b793-7aa77ffea637"
+I190514 03:45:08.801929 82 server/node.go:542  [n1] node=1: started with [<no-attributes>=/home/jorge/go/src/backend1/cockroach-data] engine(s) and attributes []
+I190514 03:45:08.802300 82 server/status/recorder.go:610  [n1] available memory from cgroups (8.0 EiB) exceeds system memory 16 GiB, using system memory
+I190514 03:45:08.869024 82 server/server.go:1582  [n1] starting https server at [::]:8080 (use: jorge-PE60-7RD:8080)
+I190514 03:45:08.869066 82 server/server.go:1584  [n1] starting grpc/postgres server at [::]:26257
+I190514 03:45:08.869107 82 server/server.go:1585  [n1] advertising CockroachDB node at jorge-PE60-7RD:26257
+W190514 03:45:08.869613 82 jobs/registry.go:341  [n1] unable to get node liveness: node not in the liveness table
+W190514 03:45:08.892246 208 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+W190514 03:45:09.086101 208 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190514 03:45:09.363459 259 storage/node_liveness.go:453  [n1,hb] heartbeat failed on epoch increment; retrying
+W190514 03:45:09.405966 17 storage/engine/rocksdb.go:127  [rocksdb] [/go/src/github.com/cockroachdb/cockroach/c-deps/rocksdb/db/version_set.cc:2566] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
+I190514 03:45:09.432785 259 storage/node_liveness.go:453  [n1,hb] heartbeat failed on epoch increment; retrying
+I190514 03:45:09.583537 82 server/server.go:1650  [n1] done ensuring all necessary migrations have run
+I190514 03:45:09.583578 82 server/server.go:1653  [n1] serving sql connections
+I190514 03:45:09.583882 82 cli/start.go:689  [config] clusterID: 0582a066-33ef-4110-b793-7aa77ffea637
+I190514 03:45:09.583951 82 cli/start.go:697  node startup completed:
+CockroachDB node starting at 2019-05-14 03:45:09.583720429 +0000 UTC (took 3.0s)
+build:               CCL v19.1.0 @ 2019/04/29 18:36:40 (go1.11.6)
+webui:               https://jorge-PE60-7RD:8080
+sql:                 postgresql://root@jorge-PE60-7RD:26257?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt
+client flags:        cockroach <client cmd> --host=jorge-PE60-7RD:26257 --certs-dir=certs
+logs:                /home/jorge/go/src/backend1/cockroach-data/logs
+temp dir:            /home/jorge/go/src/backend1/cockroach-data/cockroach-temp020413059
+external I/O path:   /home/jorge/go/src/backend1/cockroach-data/extern
+store[0]:            path=/home/jorge/go/src/backend1/cockroach-data
+status:              restarted pre-existing node
+clusterID:           0582a066-33ef-4110-b793-7aa77ffea637
+nodeID:              1
+I190514 03:45:10.395786 139 gossip/gossip.go:1510  [n1] node has connected to cluster via gossip
+I190514 03:45:10.395958 139 storage/stores.go:263  [n1] wrote 0 node addresses to persistent storage
+I190514 03:45:10.550889 128 server/server_update.go:67  [n1] no need to upgrade, cluster already at the newest version
+I190514 03:45:10.866415 292 sql/event_log.go:135  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:jorge-PE60-7RD:26257 Attrs: Locality: ServerVersion:19.1 BuildTag:v19.1.0 StartedAt:1557805508512309553 LocalityAddress:[] XXX_NoUnkeyedLiteral:{} XXX_sizecache:0} ClusterID:0582a066-33ef-4110-b793-7aa77ffea637 StartedAt:1557805508512309553 LastUp:1557729653446674438}
+W190514 03:45:11.601964 255 sql/schema_changer.go:796  [n1,scExec] ID 64 is not a table
+I190514 03:45:11.790869 1 cli/start.go:765  received signal 'interrupt'
+I190514 03:45:11.770034 237 storage/replica_command.go:386  [n1,merge,s1,r31/1:/Table/6{3-4}] initiating a merge of r41:/Table/6{4-5} [(n1,s1):1, next=2, gen=1] into this range (lhs+rhs has (size=0 B+0 B qps=0.00+0.51 --> 0.51qps) below threshold (size=0 B, qps=0.51))
+I190514 03:45:11.884875 1 cli/start.go:830  initiating graceful shutdown of server
+I190514 03:45:11.960454 242 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+2      node.Node: batch
+1      [async] storage.raftlog: processing replica
+1      [async] storage.merge: processing replica
+1      [async] storage.consistencyChecker: processing replica
+1      [async] storage.Replica: computing checksum
+1      [async] storage.Replica: checking consistency
+1      [async] storage.IntentResolver: cleanup txn records
+1      [async] kv.TxnCoordSender: heartbeat loop
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+W190514 03:45:11.960541 372 storage/intentresolver/intent_resolver.go:822  failed to gc transaction record: could not GC completed transaction anchored at /Table/SystemConfigSpan/Start: node unavailable; try another peer
+I190514 03:45:12.035954 242 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      node.Node: batch
+1      [async] storage.raftlog: processing replica
+1      [async] storage.merge: processing replica
+1      [async] storage.consistencyChecker: processing replica
+1      [async] storage.Replica: computing checksum
+1      [async] storage.Replica: checking consistency
+1      [async] storage.IntentResolver: cleanup txn records
+1      [async] kv.TxnCoordSender: heartbeat loop
+1      [async] intent_resolver_ir_batcher
+1      [async] closedts-rangefeed-subscriber
+W190514 03:45:12.036103 237 internal/client/txn.go:509  [n1,merge,s1,r31/1:/Table/6{3-4}] failure aborting transaction: node unavailable; try another peer; abort caused by: result is ambiguous (server shutdown)
+E190514 03:45:12.112353 371 storage/queue.go:829  [n1,raftlog,s1,r6/1:/Table/{SystemCon…-11}] result is ambiguous (server shutdown)
+I190514 03:45:12.112427 242 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] storage.raftlog: processing replica
+1      [async] storage.merge: processing replica
+I190514 03:45:12.221088 242 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] storage.raftlog: processing replica
+W190514 03:45:12.421754 255 sql/schema_changer.go:519  [n1,scExec] node unavailable; try another peer
+W190514 03:45:12.479897 255 sql/schema_changer.go:1586  [n1] Error executing schema change: failed to update job 450904031907250177: log-job: node unavailable; try another peer
+E190514 03:45:12.767863 1 cli/start.go:866  received signal 'interrupt' during shutdown, initiating hard shutdown - node may take longer to restart & clients may need to wait for leases to expire
