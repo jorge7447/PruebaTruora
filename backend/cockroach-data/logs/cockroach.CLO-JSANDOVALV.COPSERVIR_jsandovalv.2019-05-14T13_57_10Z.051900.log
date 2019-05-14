@@ -1,0 +1,37 @@
+I190514 13:57:10.388054 1 util/log/clog.go:1199  [config] file created at: 2019/05/14 13:57:10
+I190514 13:57:10.388054 1 util/log/clog.go:1199  [config] running on machine: CLO-JSANDOVALV
+I190514 13:57:10.388054 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190514 13:57:10.388054 1 util/log/clog.go:1199  [config] arguments: [cockroach start --insecure --listen-addr=localhost]
+I190514 13:57:10.388054 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190514 13:57:10.388052 1 cli/start.go:1033  logging to directory C:\Users\jsandovalv\go\src\backend\cockroach-data\logs
+W190514 13:57:10.391164 1 cli/start.go:1068  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access localhost.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.1/secure-a-cluster.html
+W190514 13:57:10.425221 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W190514 13:57:10.425275 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I190514 13:57:10.425294 1 cli/start.go:1082  CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190514 13:57:10.530833 1 server/config.go:386  system total memory: 7.9 GiB
+I190514 13:57:10.530892 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190514 13:57:10.530930 1 cli/start.go:929  process identity: uid S-1-5-21-3587429272-3227690676-254406505-19748, gid S-1-5-21-3587429272-3227690676-254406505-513
+I190514 13:57:10.530950 1 cli/start.go:554  starting cockroach node
+I190514 13:57:10.532381 66 storage/engine/rocksdb.go:613  opening rocksdb instance at "C:\\Users\\jsandovalv\\go\\src\\backend\\cockroach-data\\cockroach-temp503448163"
+I190514 13:57:10.948430 66 server/server.go:876  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I190514 13:57:10.949094 66 storage/engine/rocksdb.go:613  opening rocksdb instance at "C:\\Users\\jsandovalv\\go\\src\\backend\\cockroach-data"
+E190514 13:57:11.076509 1 cli/error.go:229  cockroach server exited with error: failed to create engines: could not open rocksdb instance: Corruption: CURRENT file corrupted
+Error: cockroach server exited with error: failed to create engines: could not open rocksdb instance: Corruption: CURRENT file corrupted

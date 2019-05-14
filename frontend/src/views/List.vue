@@ -5,7 +5,7 @@
                 <b-input-group>
                     <b-form-input v-model="filter" placeholder="Buscar"></b-form-input>
                     <b-input-group-append>
-                        <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+                        <b-button :disabled="!filter" @click="filter = ''">Borrar</b-button>
                     </b-input-group-append>
                 </b-input-group>
             </b-col>
@@ -20,7 +20,7 @@
                 <b-button pill
                     variant="dark"
                     @click="goToActions(row.item)"
-                >Acciones</b-button>
+                >Enc - Des</b-button>
             </template>
             
             </b-table>

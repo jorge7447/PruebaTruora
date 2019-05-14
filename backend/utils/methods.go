@@ -6,34 +6,28 @@ import (
 	"crypto/sha512"
 	"crypto/x509"
 	"encoding/pem"
-	"fmt"
 	"log"
-	"os"
 )
 
 func GenerateKeyPair(bits int) (*rsa.PrivateKey, *rsa.PublicKey) {
-	privkey, err := rsa.GenerateKey(rand.Reader, bits)
+	privateKey, err := rsa.GenerateKey(rand.Reader, bits)
 	if err != nil {
-		os.Exit(1)
+		log.Panic(err)
 	}
-	return privkey, &privkey.PublicKey
+
+	if err := privateKey.Validate(); err != nil {
+		log.Panic(err)
+	}
+
+	if privateKey.D.Cmp(privateKey.N) > 0 {
+		log.Panic("Exponente privado demasiado grande")
+	}
+
+	return privateKey, &privateKey.PublicKey
 }
 
 //Funcion para convertir la llave publica en bytes
 func PublicKeyToBytes(publicKey *rsa.PublicKey) []byte {
-
-	/*pubASN1, err := x509.MarshalPKIXPublicKey(pub)
-	if err != nil {
-		log.Error(err)
-	}
-
-	pubBytes := pem.EncodeToMemory(&pem.Block{
-		Type:  "RSA PUBLIC KEY",
-		Bytes: pubASN1,
-	})
-
-	return pubBytes*/
-
 	block := &pem.Block{
 		Type:  "RSA PUBLIC KEY",
 		Bytes: x509.MarshalPKCS1PublicKey(publicKey),
@@ -46,25 +40,15 @@ func PublicKeyToBytes(publicKey *rsa.PublicKey) []byte {
 
 //Funcion para convertir la llave privada en bytes
 func PrivateKeyToBytes(privateKey *rsa.PrivateKey, password string) []byte {
-	/*privBytes := pem.EncodeToMemory(
-		&pem.Block{
-			Type:  "RSA PRIVATE KEY",
-			Bytes: x509.MarshalPKCS1PrivateKey(priv),
-		},
-	)
-
-	return privBytes*/
-	// Convert it to pem
 	block := &pem.Block{
 		Type:  "RSA PRIVATE KEY",
 		Bytes: x509.MarshalPKCS1PrivateKey(privateKey),
 	}
 
 	var err error
-	// Encrypt the pem
 	block, err = x509.EncryptPEMBlock(rand.Reader, block.Type, block.Bytes, []byte(password), x509.PEMCipherAES256)
 	if err != nil {
-		os.Exit(1)
+		log.Panic(err)
 	}
 
 	private := pem.EncodeToMemory(block)
@@ -75,54 +59,16 @@ func PrivateKeyToBytes(privateKey *rsa.PrivateKey, password string) []byte {
 //Funcion para convertir los bytes en una llave publica
 func BytesToPublicKey(public []byte) *rsa.PublicKey {
 
-	/*block, _ := pem.Decode(pub)
-	enc := x509.IsEncryptedPEMBlock(block)
-	b := block.Bytes
-	var err error
-	if enc {
-		log.Println("is encrypted pem block")
-		b, err = x509.DecryptPEMBlock(block, nil)
-		if err != nil {
-			log.Error(err)
-		}
-	}
-	ifc, err := x509.ParsePKIXPublicKey(b)
-	if err != nil {
-		log.Error(err)
-	}
-	key, ok := ifc.(*rsa.PublicKey)
-	if !ok {
-		log.Error("not ok")
-	}
-	return key*/
-
-	block, _ := pem.Decode(public) //[]byte(keyData.Public)
+	block, _ := pem.Decode(public)
 	result, _ := x509.ParsePKCS1PublicKey(block.Bytes)
-	//fmt.Println(parseResult)
 	return result
 }
 
+//Funcion para convertir los bytes en una llave privada
 func BytesToPrivateKey(private []byte, password string) *rsa.PrivateKey {
 
-	/*block, _ := pem.Decode(priv)
-	enc := x509.IsEncryptedPEMBlock(block)
-	b := block.Bytes
 	var err error
-	if enc {
-		log.Println("is encrypted pem block")
-		b, err = x509.DecryptPEMBlock(block, nil)
-		if err != nil {
-			log.Error(err)
-		}
-	}
-	key, err := x509.ParsePKCS1PrivateKey(b)
-	if err != nil {
-		log.Error(err)
-	}
-	return key*/
-
-	var err error
-	block, _ := pem.Decode(private) //[]byte(keyData.Public)
+	block, _ := pem.Decode(private)
 
 	encrypted := x509.IsEncryptedPEMBlock(block)
 	bytes := block.Bytes
@@ -131,39 +77,29 @@ func BytesToPrivateKey(private []byte, password string) *rsa.PrivateKey {
 		bytes, err = x509.DecryptPEMBlock(block, []byte(password))
 		if err != nil {
 			log.Panic(err)
-			fmt.Println(err)
 		}
 	}
 
-	/*
-		result, err := x509.ParsePKCS1PrivateKey(block.Bytes)
-		if err != nil {
-			fmt.Println(err.Error())
-			os.Exit(1)
-		}
-
-		return result*/
 	result, err := x509.ParsePKCS1PrivateKey(bytes)
 	if err != nil {
 		log.Panic(err)
-		fmt.Println(err)
 	}
 
 	return result
 }
 
+//Funcion para encriptar con una llave publica
 func EncryptWithPublicKey(msg []byte, pub *rsa.PublicKey) []byte {
-	hash := sha512.New()
-	ciphertext, err := rsa.EncryptOAEP(hash, rand.Reader, pub, msg, nil)
+	ciphertext, err := rsa.EncryptOAEP(sha512.New(), rand.Reader, pub, msg, nil)
 	if err != nil {
 		log.Panic(err)
 	}
 	return ciphertext
 }
 
+//Funcion para desencriptar con una llave privada
 func DecryptWithPrivateKey(ciphertext []byte, priv *rsa.PrivateKey) []byte {
-	hash := sha512.New()
-	plaintext, err := rsa.DecryptOAEP(hash, rand.Reader, priv, ciphertext, nil)
+	plaintext, err := rsa.DecryptOAEP(sha512.New(), rand.Reader, priv, ciphertext, nil)
 	if err != nil {
 		log.Panic(err.Error)
 	}

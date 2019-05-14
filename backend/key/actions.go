@@ -2,9 +2,11 @@ package key
 
 import (
 	"backend/database"
+	"backend/key/structures"
 	"backend/utils"
 	"encoding/base64"
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -12,6 +14,7 @@ import (
 
 var pass = "joensave"
 
+//Crear llaves POST /api/key
 func CreateKey(w http.ResponseWriter, r *http.Request) {
 
 	decoder := json.NewDecoder(r.Body)
@@ -20,7 +23,7 @@ func CreateKey(w http.ResponseWriter, r *http.Request) {
 	err := decoder.Decode(&keyData)
 
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	defer r.Body.Close()
@@ -39,66 +42,19 @@ func CreateKey(w http.ResponseWriter, r *http.Request) {
 	keyData.Private = string(private)
 
 	db := database.Connection()
-	db.Create(&keyData)
 
-	results := Message{0, "La llave " + keyData.Name + " se genero exitosamente"}
+	if err := db.Create(&keyData).Error; err != nil {
+		w.WriteHeader(500)
+		return
+	}
+
+	results := structures.Message{0, "La llave " + keyData.Name + " se genero exitosamente"}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	json.NewEncoder(w).Encode(results)
-
-	/* ------------------------------ Prueba encriptar ---------------------------- */
-
-	/*publicDecode, _ := base64.StdEncoding.DecodeString(keyData.Public)
-
-	publicKeyEncrypt := utils.BytesToPublicKey(publicDecode)
-
-	ciphertext := utils.EncryptWithPublicKey([]byte("hola mundo"), publicKeyEncrypt)
-	fmt.Println("")
-	fmt.Println("cadena encriptada: %x", ciphertext)
-	fmt.Printf("cadena encriptada: %x\n", ciphertext)
-	fmt.Println("cadena encriptada: %x\n", []byte(string(ciphertext)))
-	fmt.Println("")
-
-	privateDecode, _ := base64.StdEncoding.DecodeString(keyData.Private)
-
-	privateKeyDecrypt := utils.BytesToPrivateKey(privateDecode, pass)
-	plaintext := utils.DecryptWithPrivateKey(ciphertext, privateKeyDecrypt)
-	fmt.Println("")
-	fmt.Println("cadena desencriptada: %x", plaintext)
-	fmt.Println("cadena desencriptada s: %x", string(plaintext))
-	fmt.Println("")*/
-
-	/* ------------------------------ Prueba encriptar con Bd ---------------------------- */
-
-	/*var keyDataBd Key
-
-	db.First(&keyDataBd, keyData.ID)
-
-	publicBdDecode, _ := base64.StdEncoding.DecodeString(keyDataBd.Public)
-	publicKeyBd := utils.BytesToPublicKey(publicBdDecode)
-
-	ciphertextBd := utils.EncryptWithPublicKey([]byte("Hola mundo"), publicKeyBd)
-
-	fmt.Println("")
-	fmt.Println("")
-	fmt.Println("_______________________DESDE BD__________________________")
-	fmt.Println("cadena encriptada: %x", ciphertextBd)
-	fmt.Printf("cadena encriptada: %x\n", ciphertextBd)
-	fmt.Println("cadena encriptada: %x\n", []byte(string(ciphertextBd)))
-	fmt.Println("")
-
-	privateBdDecode, _ := base64.StdEncoding.DecodeString(keyDataBd.Private)
-	privateBdKeyDecrypt := utils.BytesToPrivateKey(privateBdDecode, pass)
-
-	plaintextBd := utils.DecryptWithPrivateKey(ciphertextBd, privateBdKeyDecrypt)
-	fmt.Println("")
-	fmt.Println("cadena desencriptada: %x", plaintextBd)
-	fmt.Println("cadena desencriptada s: %x", string(plaintextBd))
-	fmt.Println("")*/
-
 }
 
-//Buscar y listar llaves por nombre /api/key | /api/key?search=1
+//Buscar y listar llaves por nombre GET /api/key || /api/key?search=1
 func GetKeys(w http.ResponseWriter, r *http.Request) {
 
 	var keys []Key
@@ -118,6 +74,7 @@ func GetKeys(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(keys)
 }
 
+//Obtener detalle llave GET /api/key/id
 func GetKey(w http.ResponseWriter, r *http.Request) {
 
 	id := chi.URLParam(r, "id")
@@ -132,15 +89,16 @@ func GetKey(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(keyData)
 }
 
+//Encriptar texto plano POST /api/key/encrypt
 func EncryptText(w http.ResponseWriter, r *http.Request) {
 
 	decoder := json.NewDecoder(r.Body)
 
-	var Data DataReceived
+	var Data structures.DataReceived
 	err := decoder.Decode(&Data)
 
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	defer r.Body.Close()
@@ -152,10 +110,11 @@ func EncryptText(w http.ResponseWriter, r *http.Request) {
 	database.CloseConnection(db)
 
 	//publicDecode, _ := base64.StdEncoding.DecodeString(keyData.Public)
+
 	publicKey := utils.BytesToPublicKey([]byte(keyData.Public))
 	cipherText := utils.EncryptWithPublicKey([]byte(string(Data.Message)), publicKey)
 
-	results := Message{}
+	results := structures.Message{}
 	results.Message = base64.StdEncoding.EncodeToString(cipherText)
 
 	w.Header().Set("Content-Type", "application/json")
@@ -163,15 +122,16 @@ func EncryptText(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(results)
 }
 
+//Desencriptar texto plano POST /api/key/decrypt
 func DecryptText(w http.ResponseWriter, r *http.Request) {
 
 	decoder := json.NewDecoder(r.Body)
 
-	var Data DataReceived
+	var Data structures.DataReceived
 	err := decoder.Decode(&Data)
 
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	defer r.Body.Close()
@@ -185,12 +145,11 @@ func DecryptText(w http.ResponseWriter, r *http.Request) {
 	decodedMessage, _ := base64.StdEncoding.DecodeString(Data.Message)
 
 	//privateDecode, _ := base64.StdEncoding.DecodeString(keyData.Private)
-	//privateDecode := keyData.Private
 
 	privateKey := utils.BytesToPrivateKey([]byte(keyData.Private), pass)
 	plainText := utils.DecryptWithPrivateKey(decodedMessage, privateKey)
 
-	results := Message{}
+	results := structures.Message{}
 	results.Message = string(plainText)
 
 	w.Header().Set("Content-Type", "application/json")

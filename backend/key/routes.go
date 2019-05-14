@@ -1,6 +1,8 @@
 package key
 
-import "github.com/go-chi/chi"
+import (
+	"github.com/go-chi/chi"
+)
 
 func Routes() *chi.Mux {
 
@@ -10,5 +12,6 @@ func Routes() *chi.Mux {
 	router.Get("/{id}", GetKey)
 	router.Post("/encrypt", EncryptText)
 	router.Post("/decrypt", DecryptText)
+
 	return router
 }

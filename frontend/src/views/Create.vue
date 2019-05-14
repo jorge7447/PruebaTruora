@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-alert v-model="showError" variant="danger" dismissible>
-            Dismissible Alert!
+            {{errorMessage}}
         </b-alert>
         <key-form :keyData="keyData" @processKey="addKey"></key-form>
     </div>
@@ -28,12 +28,12 @@
         methods: {
             ...mapActions('key', ['create']),
             async addKey(keyData){
-                await this.create(keyData)                
+                this.showError = false
+                await this.create(keyData)
                 if(!this.error)
                     this.$router.push('/list')
                 else{
                     this.showError = true
-                    console.log(this.errorMessage)
                 }
             }
         }

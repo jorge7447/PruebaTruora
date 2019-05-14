@@ -1,0 +1,126 @@
+I190514 18:58:59.923994 1 util/log/clog.go:1199  [config] file created at: 2019/05/14 18:58:59
+I190514 18:58:59.923994 1 util/log/clog.go:1199  [config] running on machine: CLO-JSANDOVALV
+I190514 18:58:59.923994 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190514 18:58:59.923994 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs --listen-addr=localhost]
+I190514 18:58:59.923994 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190514 18:58:59.923991 1 cli/start.go:1033  logging to directory C:\Users\jsandovalv\go\src\backend\cockroach-data\logs
+W190514 18:58:59.962900 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W190514 18:58:59.962933 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I190514 18:58:59.962946 1 cli/start.go:1082  CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190514 18:59:00.071212 1 server/config.go:386  system total memory: 7.9 GiB
+I190514 18:59:00.071247 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190514 18:59:00.071269 1 cli/start.go:929  process identity: uid S-1-5-21-3587429272-3227690676-254406505-19748, gid S-1-5-21-3587429272-3227690676-254406505-513
+I190514 18:59:00.071278 1 cli/start.go:554  starting cockroach node
+I190514 18:59:00.075040 66 storage/engine/rocksdb.go:613  opening rocksdb instance at "C:\\Users\\jsandovalv\\go\\src\\backend\\cockroach-data\\cockroach-temp283400515"
+I190514 18:59:00.604582 66 server/server.go:876  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I190514 18:59:00.605716 66 base/addr_validation.go:279  [n?] server certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+W190514 18:59:00.609410 66 base/addr_validation.go:293  [n?] listen address "127.0.0.1" not in node certificate (IP=; DNS=localhost,jorge-PE60-7RD; CN=node)
+Secure node-node and SQL connections are likely to fail.
+Consider extending the node certificate or tweak --listen-addr/--advertise-addr.
+I190514 18:59:00.609478 66 base/addr_validation.go:319  [n?] web UI certificate addresses: IP=; DNS=localhost,jorge-PE60-7RD; CN=node
+I190514 18:59:00.611153 66 storage/engine/rocksdb.go:613  opening rocksdb instance at "C:\\Users\\jsandovalv\\go\\src\\backend\\cockroach-data"
+I190514 18:59:00.801597 66 server/config.go:494  [n?] 1 storage engine initialized
+I190514 18:59:00.801626 66 server/config.go:497  [n?] RocksDB cache size: 128 MiB
+I190514 18:59:00.801639 66 server/config.go:497  [n?] store 0: RocksDB, max size 0 B, max open file limit 10000
+I190514 18:59:00.881679 66 server/server.go:926  [n?] Sleeping till wall time 1557860340881586500 to catches up to 1557860341104422201 to ensure monotonicity. Delta: 222.835701ms
+I190514 18:59:01.106470 66 gossip/gossip.go:392  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:1 patch:0 unstable:0 > build_tag:"v19.1.0" started_at:1557860341106082000 
+W190514 18:59:01.146715 228 storage/replica_range_lease.go:506  can't determine lease status due to node liveness error: node not in the liveness table
+W190514 18:59:01.146788 228 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190514 18:59:01.162289 66 server/node.go:461  [n1] initialized store [n1,s1]: disk (capacity=915 GiB, available=628 GiB, used=17 MiB, logicalBytes=79 MiB), ranges=38, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=3009.00 p75=24915.00 p90=147237.00 pMax=38751760.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I190514 18:59:01.162428 66 storage/stores.go:244  [n1] read 0 node addresses from persistent storage
+W190514 18:59:01.201222 228 storage/store.go:1525  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I190514 18:59:01.201423 66 server/node.go:699  [n1] connecting to gossip network to verify cluster ID...
+I190514 18:59:01.201521 66 server/node.go:719  [n1] node connected via gossip and verified as part of cluster "0582a066-33ef-4110-b793-7aa77ffea637"
+I190514 18:59:01.202278 66 server/node.go:542  [n1] node=1: started with [<no-attributes>=C:\Users\jsandovalv\go\src\backend\cockroach-data] engine(s) and attributes []
+I190514 18:59:01.203601 66 server/server.go:1582  [n1] starting https server at 127.0.0.1:8080 (use: localhost:8080)
+I190514 18:59:01.203653 66 server/server.go:1584  [n1] starting grpc/postgres server at 127.0.0.1:26257
+I190514 18:59:01.203685 66 server/server.go:1585  [n1] advertising CockroachDB node at localhost:26257
+W190514 18:59:01.203793 66 jobs/registry.go:341  [n1] unable to get node liveness: node not in the liveness table
+I190514 18:59:01.393993 66 server/server.go:1650  [n1] done ensuring all necessary migrations have run
+I190514 18:59:01.394069 66 server/server.go:1653  [n1] serving sql connections
+I190514 18:59:01.394748 66 cli/start.go:689  [config] clusterID: 0582a066-33ef-4110-b793-7aa77ffea637
+I190514 18:59:01.394875 66 cli/start.go:697  node startup completed:
+CockroachDB node starting at 2019-05-14 18:59:01.3944324 +0000 UTC (took 1.5s)
+build:               CCL v19.1.0 @ 2019/04/29 18:46:21 (go1.11.6)
+webui:               https://localhost:8080
+sql:                 postgresql://root@localhost:26257?sslcert=certs%5Cclient.root.crt&sslkey=certs%5Cclient.root.key&sslmode=verify-full&sslrootcert=certs%5Cca.crt
+client flags:        cockroach <client cmd> --host=localhost:26257 --certs-dir=certs
+logs:                C:\Users\jsandovalv\go\src\backend\cockroach-data\logs
+temp dir:            C:\Users\jsandovalv\go\src\backend\cockroach-data\cockroach-temp283400515
+external I/O path:   C:\Users\jsandovalv\go\src\backend\cockroach-data\extern
+store[0]:            path=C:\Users\jsandovalv\go\src\backend\cockroach-data
+status:              restarted pre-existing node
+clusterID:           0582a066-33ef-4110-b793-7aa77ffea637
+nodeID:              1
+I190514 18:59:01.632188 27 server/server_update.go:67  [n1] no need to upgrade, cluster already at the newest version
+I190514 18:59:01.818530 139 sql/lease.go:1857  released orphaned table lease: {id:86 version:1 expiration:{Time:{wall:305497000 ext:63693457355 loc:<nil>}}}
+I190514 18:59:01.860075 30 sql/event_log.go:135  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:localhost:26257 Attrs: Locality: ServerVersion:19.1 BuildTag:v19.1.0 StartedAt:1557860341106082000 LocalityAddress:[] XXX_NoUnkeyedLiteral:{} XXX_sizecache:0} ClusterID:0582a066-33ef-4110-b793-7aa77ffea637 StartedAt:1557860341106082000 LastUp:1557860337109595700}
+I190514 18:59:02.586797 40 gossip/gossip.go:1510  [n1] node has connected to cluster via gossip
+I190514 18:59:02.586977 40 storage/stores.go:263  [n1] wrote 0 node addresses to persistent storage
+W190514 18:59:11.203650 241 server/status/runtime.go:423  [n1] unable to get file descriptor usage (will not try again): not implemented on windows
+I190514 18:59:11.212314 236 storage/store.go:4220  [n1,s1] sstables (read amplification = 2):
+0 [ 80K 1 ]: 80K
+6 [ 11M 3 ]: 4M[2] 3M
+I190514 18:59:11.212412 236 storage/store.go:4221  [n1,s1] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0   80.02 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      1.5         0         1    0.051       0      0
+  L6      3/0   11.19 MB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0         0         0    0.000       0      0
+ Sum      4/0   11.27 MB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      1.5         0         1    0.051       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      1.5         0         1    0.051       0      0
+Uptime(secs): 10.6 total, 10.6 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.01 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.01 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I190514 18:59:11.472544 241 server/status/runtime.go:500  [n1] runtime stats: 83 MiB RSS, 170 goroutines, 76 MiB/9.4 MiB/99 MiB GO alloc/idle/total, 19 MiB/22 MiB CGO alloc/total, 0.0 CGO/sec, 0.0/0.0 %(u/s)time, 0.0 %gc (9x), 25 KiB/9.6 KiB (r/w)net
+W190514 18:59:21.115565 351 sql/pgwire/server.go:570  [n1,client=127.0.0.1:64526] unknown configuration parameter: "ssl"
+I190514 18:59:21.760648 241 server/status/runtime.go:500  [n1] runtime stats: 86 MiB RSS, 167 goroutines, 83 MiB/2.3 MiB/99 MiB GO alloc/idle/total, 20 MiB/24 MiB CGO alloc/total, 452.1 CGO/sec, 0.8/0.9 %(u/s)time, 0.0 %gc (0x), 14 KiB/9.3 KiB (r/w)net
+I190514 18:59:32.031361 241 server/status/runtime.go:500  [n1] runtime stats: 97 MiB RSS, 170 goroutines, 90 MiB/3.9 MiB/107 MiB GO alloc/idle/total, 23 MiB/28 MiB CGO alloc/total, 427.1 CGO/sec, 1.4/0.8 %(u/s)time, 0.0 %gc (0x), 11 KiB/6.0 KiB (r/w)net
+I190514 18:59:42.370326 241 server/status/runtime.go:500  [n1] runtime stats: 105 MiB RSS, 168 goroutines, 97 MiB/840 KiB/111 MiB GO alloc/idle/total, 24 MiB/29 MiB CGO alloc/total, 346.2 CGO/sec, 0.9/0.6 %(u/s)time, 0.0 %gc (0x), 14 KiB/14 KiB (r/w)net
+I190514 18:59:52.655118 241 server/status/runtime.go:500  [n1] runtime stats: 112 MiB RSS, 168 goroutines, 103 MiB/2.5 MiB/120 MiB GO alloc/idle/total, 24 MiB/29 MiB CGO alloc/total, 236.9 CGO/sec, 1.1/0.6 %(u/s)time, 0.0 %gc (0x), 12 KiB/11 KiB (r/w)net
+W190514 19:00:01.212846 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 72: create-stats: table is being dropped
+W190514 19:00:01.217669 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 73: create-stats: table is being dropped
+W190514 19:00:01.225355 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 74: create-stats: table is being dropped
+W190514 19:00:01.229917 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 77: create-stats: table is being dropped
+W190514 19:00:01.234513 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 78: create-stats: table is being dropped
+W190514 19:00:01.245757 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 71: create-stats: table is being dropped
+W190514 19:00:01.250011 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 75: create-stats: table is being dropped
+W190514 19:00:01.252920 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 76: create-stats: table is being dropped
+W190514 19:00:01.254560 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 81: create-stats: table is being dropped
+W190514 19:00:01.257482 418 sql/stats/automatic_stats.go:450  failed to create statistics on table 83: create-stats: table is being dropped
+I190514 19:00:01.260487 237 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+gossip connectivity
+  n1 [sentinel];
+I190514 19:00:02.964689 241 server/status/runtime.go:500  [n1] runtime stats: 122 MiB RSS, 167 goroutines, 110 MiB/3.9 MiB/128 MiB GO alloc/idle/total, 24 MiB/29 MiB CGO alloc/total, 445.1 CGO/sec, 1.2/0.9 %(u/s)time, 0.0 %gc (1x), 38 KiB/137 KiB (r/w)net
+I190514 19:00:13.259499 241 server/status/runtime.go:500  [n1] runtime stats: 123 MiB RSS, 167 goroutines, 78 MiB/41 MiB/136 MiB GO alloc/idle/total, 24 MiB/30 MiB CGO alloc/total, 222.9 CGO/sec, 0.8/0.6 %(u/s)time, 0.0 %gc (0x), 38 KiB/19 KiB (r/w)net
+I190514 19:00:23.595407 241 server/status/runtime.go:500  [n1] runtime stats: 124 MiB RSS, 167 goroutines, 84 MiB/36 MiB/136 MiB GO alloc/idle/total, 24 MiB/30 MiB CGO alloc/total, 248.3 CGO/sec, 0.8/0.2 %(u/s)time, 0.0 %gc (0x), 19 KiB/4.7 KiB (r/w)net
+I190514 19:00:33.899943 241 server/status/runtime.go:500  [n1] runtime stats: 124 MiB RSS, 168 goroutines, 90 MiB/30 MiB/136 MiB GO alloc/idle/total, 25 MiB/31 MiB CGO alloc/total, 240.4 CGO/sec, 0.8/0.6 %(u/s)time, 0.0 %gc (0x), 8.8 KiB/13 KiB (r/w)net
+I190514 19:00:44.214135 241 server/status/runtime.go:500  [n1] runtime stats: 126 MiB RSS, 168 goroutines, 97 MiB/24 MiB/136 MiB GO alloc/idle/total, 25 MiB/31 MiB CGO alloc/total, 228.0 CGO/sec, 0.8/0.6 %(u/s)time, 0.0 %gc (0x), 14 KiB/11 KiB (r/w)net
+I190514 19:00:48.159880 1 cli/start.go:765  received signal 'interrupt'
+I190514 19:00:48.173097 1 cli/start.go:830  initiating graceful shutdown of server
+I190514 19:00:48.299069 539 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] stats.Refresher: maybeRefreshStats
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+E190514 19:00:48.299126 1 cli/start.go:866  received signal 'interrupt' during shutdown, initiating hard shutdown - node may take longer to restart & clients may need to wait for leases to expire

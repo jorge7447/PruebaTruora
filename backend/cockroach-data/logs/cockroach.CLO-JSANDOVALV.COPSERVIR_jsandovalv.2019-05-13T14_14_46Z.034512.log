@@ -1,0 +1,32 @@
+I190513 14:14:46.483241 1 util/log/clog.go:1199  [config] file created at: 2019/05/13 14:14:46
+I190513 14:14:46.483241 1 util/log/clog.go:1199  [config] running on machine: CLO-JSANDOVALV
+I190513 14:14:46.483241 1 util/log/clog.go:1199  [config] binary: CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190513 14:14:46.483241 1 util/log/clog.go:1199  [config] arguments: [cockroach start --certs-dir=certs --listen-addr=localhost]
+I190513 14:14:46.483241 1 util/log/clog.go:1199  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I190513 14:14:46.483239 1 cli/start.go:1033  logging to directory C:\Users\jsandovalv\go\src\cockroach-data\logs
+W190513 14:14:46.518199 1 cli/start.go:944  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W190513 14:14:46.518242 1 cli/start.go:957  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I190513 14:14:46.518261 1 cli/start.go:1082  CockroachDB CCL v19.1.0 (x86_64-w64-mingw32, built 2019/04/29 18:46:21, go1.11.6)
+I190513 14:14:46.622408 1 server/config.go:386  system total memory: 7.9 GiB
+I190513 14:14:46.622528 1 server/config.go:388  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I190513 14:14:46.622609 1 cli/start.go:929  process identity: uid S-1-5-21-3587429272-3227690676-254406505-19748, gid S-1-5-21-3587429272-3227690676-254406505-513
+I190513 14:14:46.622643 1 cli/start.go:554  starting cockroach node
+E190513 14:14:46.652605 1 cli/error.go:229  cannot load certificates.
+Check your certificate settings, set --certs-dir, or use --insecure for insecure clusters.
+
+problem with CA certificate: not found
+Error: cannot load certificates.
+Check your certificate settings, set --certs-dir, or use --insecure for insecure clusters.
+
+problem with CA certificate: not found
